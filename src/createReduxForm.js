@@ -556,9 +556,9 @@ const createReduxForm = (structure: Structure<*, *>) => {
             nextProps.children ||
             Object.keys(nextProps).some(prop => {
               // useful to debug rerenders
-              // if (!plain.deepEqual(this.props[ prop ], nextProps[ prop ])) {
-              //   console.info(prop, 'changed', this.props[ prop ], '==>', nextProps[ prop ])
-              // }
+              if (!plain.deepEqual(this.props[ prop ], nextProps[ prop ])) {
+                console.info(prop, 'changed', this.props[ prop ], '==>', nextProps[ prop ])
+              }
               if (~immutableProps.indexOf(prop)) {
                 return this.props[prop] !== nextProps[prop]
               }
